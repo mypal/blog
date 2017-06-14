@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://mypal.wang/blog/categories/index.html</loc>
+    
+    <lastmod>2017-06-14T13:12:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://mypal.wang/blog/tags/index.html</loc>
+    
+    <lastmod>2017-06-14T13:12:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://mypal.wang/blog/about/index.html</loc>
     
     <lastmod>2017-06-12T10:54:51.000Z</lastmod>
