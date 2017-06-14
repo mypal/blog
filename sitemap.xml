@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://mypal.wang/blog/2017/06/14/init/</loc>
+    
+    <lastmod>2017-06-14T14:16:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://mypal.wang/blog/tags/index.html</loc>
     
     <lastmod>2017-06-14T14:12:44.000Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://mypal.wang/blog/about/index.html</loc>
     
     <lastmod>2017-06-14T14:12:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://mypal.wang/blog/2017/06/14/init/</loc>
-    
-    <lastmod>2017-06-14T14:10:27.000Z</lastmod>
     
   </url>
   
