@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://mypal.wang/blog/"/>
-  <updated>2017-06-14T13:19:46.000Z</updated>
+  <updated>2017-06-14T14:00:26.000Z</updated>
   <id>http://mypal.wang/blog/</id>
   
   <author>
@@ -14,6 +14,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>开站</title>
+    <link href="http://mypal.wang/blog/2017/06/14/init/"/>
+    <id>http://mypal.wang/blog/2017/06/14/init/</id>
+    <published>2017-06-14T13:50:32.000Z</published>
+    <updated>2017-06-14T14:00:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>时隔一年半，懒惰的我终于又来开站了。这次开站的契机主要是家里装修再搞智能家居方案，然而穿网并不是很方便，毕竟免费的ddns限制太多，不如干脆直接自己搞个server好了。<br>另外一个原因是mos有内部优惠，薅公司羊毛，哈哈哈~<br>这里先简单说一下使用的方案，后续有时间再补充详细的搭建步骤，以及智能家居的各种解决方案。</p>
+<h1 id="服务器选择"><a href="#服务器选择" class="headerlink" title="服务器选择"></a>服务器选择</h1><ul>
+<li>美团云1核/1G/25G HDD(赠送)/1Mbps 63 ￥631.264/年</li>
+<li>万网申请的域名：mypal.wang ￥59/年</li>
+</ul>
+<h1 id="软环境"><a href="#软环境" class="headerlink" title="软环境"></a>软环境</h1><ul>
+<li>server: H2O(天生支持h2，配置比nginx简单，功能略少)</li>
+<li>https: let’s encrypt(免费)</li>
+<li>blog: hexo</li>
+</ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;时隔一年半，懒惰的我终于又来开站了。这次开站的契机主要是家里装修再搞智能家居方案，然而穿网并不是很方便，毕竟免费的ddns限制太多，不如干脆
+    
+    </summary>
+    
+      <category term="开站" scheme="http://mypal.wang/blog/categories/%E5%BC%80%E7%AB%99/"/>
+    
+    
+      <category term="开站 服务器" scheme="http://mypal.wang/blog/tags/%E5%BC%80%E7%AB%99-%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
