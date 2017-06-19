@@ -77,7 +77,7 @@
 <link href="/blog/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="开站,服务器,">
 
 
 
@@ -95,12 +95,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="mypal">
-<meta property="og:url" content="http://mypal.wang/blog/index.html">
+<meta name="description" content="前言使用了h2o作为反代，主要是便于统一各应用提供的服务，并提供多级域名。之所以没有考虑老牌nginx，是因为h2o天生支持h2，并且实现了server push，而且配置简单，但基本能满足开博的需求。然而安装的时候开始走了不少弯路….官方安装文档对依赖的说明太少了。 https是在Let’s Encrypt申请的免费证书，有90天的免费期，90天后需要重新续签。 博客系统用了hexo+next，">
+<meta name="keywords" content="开站,服务器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="build-server">
+<meta property="og:url" content="http://mypal.wang/blog/2017/06/19/build-server/index.html">
 <meta property="og:site_name" content="mypal">
+<meta property="og:description" content="前言使用了h2o作为反代，主要是便于统一各应用提供的服务，并提供多级域名。之所以没有考虑老牌nginx，是因为h2o天生支持h2，并且实现了server push，而且配置简单，但基本能满足开博的需求。然而安装的时候开始走了不少弯路….官方安装文档对依赖的说明太少了。 https是在Let’s Encrypt申请的免费证书，有90天的免费期，90天后需要重新续签。 博客系统用了hexo+next，">
+<meta property="og:updated_time" content="2017-06-19T08:45:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mypal">
+<meta name="twitter:title" content="build-server">
+<meta name="twitter:description" content="前言使用了h2o作为反代，主要是便于统一各应用提供的服务，并提供多级域名。之所以没有考虑老牌nginx，是因为h2o天生支持h2，并且实现了server push，而且配置简单，但基本能满足开博的需求。然而安装的时候开始走了不少弯路….官方安装文档对依赖的说明太少了。 https是在Let’s Encrypt申请的免费证书，有90天的免费期，90天后需要重新续签。 博客系统用了hexo+next，">
 
 
 
@@ -128,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://mypal.wang/blog/">
+  <link rel="canonical" href="http://mypal.wang/blog/2017/06/19/build-server/">
 
 
 
 
 
-  <title>mypal</title>
+  <title>build-server | mypal</title>
   
 
 
@@ -169,7 +174,7 @@
     
   
 
-  <div class="container sidebar-position-right page-home">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -282,9 +287,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -310,9 +315,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2017/06/19/build-server/" itemprop="url">build-server</a></h1>
+          <h1 class="post-title" itemprop="name headline">build-server</h1>
         
 
         <div class="post-meta">
@@ -360,6 +363,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/blog/2017/06/19/build-server/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -381,9 +394,7 @@
       
 
       
-        
-          
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>使用了<a href="https://h2o.examp1e.net/" target="_blank" rel="external">h2o</a>作为反代，主要是便于统一各应用提供的服务，并提供多级域名。之所以没有考虑老牌nginx，是因为h2o天生支持h2，并且实现了server push，而且配置简单，但基本能满足开博的需求。然而安装的时候开始走了不少弯路….官方安装文档对依赖的说明太少了。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>使用了<a href="https://h2o.examp1e.net/" target="_blank" rel="external">h2o</a>作为反代，主要是便于统一各应用提供的服务，并提供多级域名。之所以没有考虑老牌nginx，是因为h2o天生支持h2，并且实现了server push，而且配置简单，但基本能满足开博的需求。然而安装的时候开始走了不少弯路….官方安装文档对依赖的说明太少了。</p>
 <p>https是在Let’s Encrypt申请的免费证书，有90天的免费期，90天后需要重新续签。</p>
 <p>博客系统用了hexo+next，hexo的功能还是比较完善的，并且生成的是静态文件，对服务器资源要求低，配合next，还是比较美观实用的。</p>
 <h1 id="h2o安装与配置"><a href="#h2o安装与配置" class="headerlink" title="h2o安装与配置"></a>h2o安装与配置</h1><p>h2o的官方<a href="https://h2o.examp1e.net/install.html" target="_blank" rel="external">安装文档</a>描述比较简单，但h2o依赖的模块比较多，需要安装好后再进行h2o编译安装。</p>
@@ -397,184 +408,74 @@
 <p>将配置脚本保存在/etc/systemd/system/h2o.service<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">[Unit]</div><div class="line">Description=H2O - the optimized HTTP/1, HTTP/2 server</div><div class="line">After=network-online.target nss-lookup.target remote-fs.target</div><div class="line"></div><div class="line">[Service]</div><div class="line">Type=simple</div><div class="line">PIDFile=/var/run/h2o.pid</div><div class="line">ExecStart=/usr/local/bin/h2o --mode master --conf /etc/h2o/h2o.conf</div><div class="line">ExecReload=/bin/kill -HUP $MAINPID</div><div class="line">ExecStop=/bin/kill -TERM $MAINPID</div><div class="line">SyslogLevel=notice</div><div class="line">PrivateTmp=true</div><div class="line">LimitNOFILE=infinity</div><div class="line"></div><div class="line">[Install]</div><div class="line">WantedBy=multi-user.target</div></pre></td></tr></table></figure></p>
 <p>执行以下两条命令，即可立即启动并在以后开机时自启动h2o</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo systemctl start h2o.service</div><div class="line">sudo systemctl <span class="built_in">enable</span> h2o.service</div></pre></td></tr></table></figure>
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://mypal.wang/blog/blog/2017/06/14/init/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="景落">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://onx38r2j8.bkt.clouddn.com/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="mypal">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2017/06/14/init/" itemprop="url">开站</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-14T21:50:32+08:00">
-                2017-06-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/server/" itemprop="url" rel="index">
-                    <span itemprop="name">server</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/blog/tags/开站/" rel="tag"># 开站</a>
           
-
+            <a href="/blog/tags/服务器/" rel="tag"># 服务器</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>时隔一年半，懒惰的我终于又来开站了。这次开站的契机主要是家里装修再搞智能家居方案，然而穿网并不是很方便，毕竟免费的ddns限制太多，不如干脆直接自己搞个server好了。<br>另外一个原因是mos有内部优惠，薅公司羊毛，哈哈哈~<br>这里先简单说一下使用的方案，后续有时间再补充详细的搭建步骤，以及智能家居的各种解决方案。</p>
-<h1 id="服务器选择"><a href="#服务器选择" class="headerlink" title="服务器选择"></a>服务器选择</h1><ul>
-<li>美团云1核/1G/25G HDD(赠送)/1Mbps 63 ￥631.264/年</li>
-<li>万网申请的域名：mypal.wang ￥59/年</li>
-</ul>
-<h1 id="软环境"><a href="#软环境" class="headerlink" title="软环境"></a>软环境</h1><ul>
-<li>server: H2O(天生支持h2，配置比nginx简单，功能略少)</li>
-<li>https: let’s encrypt(免费)</li>
-<li>blog: hexo</li>
-</ul>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2017/06/14/init/" rel="next" title="开站">
+                <i class="fa fa-chevron-left"></i> 开站
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -582,6 +483,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
 
         </div>
         
@@ -601,8 +508,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="http://onx38r2j8.bkt.clouddn.com/avatar.jpeg" alt="景落">
           <p class="site-author-name" itemprop="name">景落</p>
@@ -669,6 +585,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#h2o安装与配置"><span class="nav-number">2.</span> <span class="nav-text">h2o安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装依赖"><span class="nav-number">2.1.</span> <span class="nav-text">安装依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#h2o编译-amp-安装"><span class="nav-number">2.2.</span> <span class="nav-text">h2o编译&安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#h2o配置"><span class="nav-number">2.3.</span> <span class="nav-text">h2o配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#systemd脚本"><span class="nav-number">2.4.</span> <span class="nav-text">systemd脚本</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -789,10 +721,10 @@
 
 
   
-    <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
