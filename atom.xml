@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://mypal.wang/blog/"/>
-  <updated>2017-06-19T08:47:09.000Z</updated>
+  <updated>2017-06-19T08:56:02.000Z</updated>
   <id>http://mypal.wang/blog/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://mypal.wang/blog/2017/06/19/build-server/"/>
     <id>http://mypal.wang/blog/2017/06/19/build-server/</id>
     <published>2017-06-19T07:37:10.000Z</published>
-    <updated>2017-06-19T08:47:09.000Z</updated>
+    <updated>2017-06-19T08:56:02.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>使用了<a href="https://h2o.examp1e.net/" target="_blank" rel="external">h2o</a>作为反代，主要是便于统一各应用提供的服务，并提供多级域名。之所以没有考虑老牌nginx，是因为h2o天生支持h2，并且实现了server push，而且配置简单，但基本能满足开博的需求。然而安装的时候开始走了不少弯路….官方安装文档对依赖的说明太少了。</p>
 <p>https是在Let’s Encrypt申请的免费证书，有90天的免费期，90天后需要重新续签。</p>
@@ -32,7 +32,7 @@
 <p>在http的80端口设置了301重定向到https，由于暂时只有blog一个应用，又将/ 302重定向到了/blog，在/blog下设置了静态服务。</p>
 <p>具体配置文档如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">user: nobody</div><div class="line">hosts:</div><div class="line">  &quot;mypal.wang:80&quot;:</div><div class="line">    listen:</div><div class="line">      port: 80</div><div class="line">    paths:</div><div class="line">      &quot;/&quot;:</div><div class="line">        redirect:</div><div class="line">          status: 301</div><div class="line">          url: &quot;https://mypal.wang/&quot;</div><div class="line"></div><div class="line">  &quot;mypal.wang:443&quot;:</div><div class="line">    listen:</div><div class="line">      port: 443</div><div class="line">      ssl:</div><div class="line">        key-file: /path/to/privkey.pem</div><div class="line">        certificate-file: /path/to/cert.pem</div><div class="line">    paths:</div><div class="line">      &quot;/&quot;:</div><div class="line">        redirect:</div><div class="line">          status: 302</div><div class="line">          url: &quot;https://mypal.wang/blog&quot;</div><div class="line">      &quot;/blog&quot;:</div><div class="line">        file.dir: /var/www/blog</div><div class="line"></div><div class="line">access-log: /var/h2o/log/access.log</div><div class="line">error-log: /var/h2o/log/error.log</div><div class="line">pid-file: /var/run/h2o.pid</div></pre></td></tr></table></figure>
-<h2 id="systemd脚本"><a href="#systemd脚本" class="headerlink" title="systemd脚本"></a>systemd脚本</h2><p>参考了GitHub上提供的一个<a href="https://gist.github.com/Angristan/214f0aa396c1a341963b937b92a38d0d" target="_blank" rel="external">脚本</a></p>
+<h2 id="systemd脚本"><a href="#systemd脚本" class="headerlink" title="systemd脚本"></a>systemd脚本</h2><p>参考了GitHub上的一个<a href="https://gist.github.com/Angristan/214f0aa396c1a341963b937b92a38d0d" target="_blank" rel="external">脚本</a></p>
 <p>将配置脚本保存在/etc/systemd/system/h2o.service<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">[Unit]</div><div class="line">Description=H2O - the optimized HTTP/1, HTTP/2 server</div><div class="line">After=network-online.target nss-lookup.target remote-fs.target</div><div class="line"></div><div class="line">[Service]</div><div class="line">Type=simple</div><div class="line">PIDFile=/var/run/h2o.pid</div><div class="line">ExecStart=/usr/local/bin/h2o --mode master --conf /etc/h2o/h2o.conf</div><div class="line">ExecReload=/bin/kill -HUP $MAINPID</div><div class="line">ExecStop=/bin/kill -TERM $MAINPID</div><div class="line">SyslogLevel=notice</div><div class="line">PrivateTmp=true</div><div class="line">LimitNOFILE=infinity</div><div class="line"></div><div class="line">[Install]</div><div class="line">WantedBy=multi-user.target</div></pre></td></tr></table></figure></p>
 <p>执行以下两条命令，即可立即启动并在以后开机时自启动h2o</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo systemctl start h2o.service</div><div class="line">sudo systemctl <span class="built_in">enable</span> h2o.service</div></pre></td></tr></table></figure>]]></content>
