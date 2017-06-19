@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://mypal.wang/blog/"/>
-  <updated>2017-06-19T08:45:05.000Z</updated>
+  <updated>2017-06-19T08:47:09.000Z</updated>
   <id>http://mypal.wang/blog/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>build-server</title>
+    <title>h2o安装与配置</title>
     <link href="http://mypal.wang/blog/2017/06/19/build-server/"/>
     <id>http://mypal.wang/blog/2017/06/19/build-server/</id>
     <published>2017-06-19T07:37:10.000Z</published>
-    <updated>2017-06-19T08:45:05.000Z</updated>
+    <updated>2017-06-19T08:47:09.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>使用了<a href="https://h2o.examp1e.net/" target="_blank" rel="external">h2o</a>作为反代，主要是便于统一各应用提供的服务，并提供多级域名。之所以没有考虑老牌nginx，是因为h2o天生支持h2，并且实现了server push，而且配置简单，但基本能满足开博的需求。然而安装的时候开始走了不少弯路….官方安装文档对依赖的说明太少了。</p>
 <p>https是在Let’s Encrypt申请的免费证书，有90天的免费期，90天后需要重新续签。</p>
